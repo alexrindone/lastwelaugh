@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import './App.css';
-import Canvas from './Canvas';
-import delay from './delay';
+import { useCallback, useEffect, useMemo, useState } from "react";
+import "./App.css";
+import Canvas from "./Canvas";
+import delay from "./delay";
 
 function App() {
   const [shouldShowSmoke, setShouldShowSmoke] = useState<boolean>(false);
@@ -9,17 +9,12 @@ function App() {
   const [animationClass, setAnimationClass] = useState<string>("timelapse-1");
   const [animationActive, setAnimationActive] = useState<boolean>(false);
   const [scoville, setScoville] = useState<number>(0);
-  
-  const runAnimation = useCallback(() => {
-    console.log('running animation')
-    setAnimationActive(true)
-  }, [])
 
   useEffect(() => {
     const triggerSmoke = async () => {
       await delay(500);
       setShouldShowSmoke(true);
-    }
+    };
 
     if (scoville >= 2000000 && animationActive) {
       triggerSmoke();
@@ -46,17 +41,24 @@ function App() {
       setAnimationClass("timelapse-1");
       setSauceBgClass("Sauce1BG");
     }
-  }, [scoville])
+  }, [scoville]);
 
   const scovilleForDisplay = useMemo(() => {
-    if (scoville >= 2000000) return `${scoville.toLocaleString('en-US')}+`
-    return scoville.toLocaleString('en-US');
-  }, [scoville])
+    if (scoville >= 2000000) return `${scoville.toLocaleString("en-US")}+`;
+    return scoville.toLocaleString("en-US");
+  }, [scoville]);
 
   const handleReset = useCallback(() => {
     setAnimationActive(false);
     setShouldShowSmoke(false);
-  }, [])
+  }, []);
+
+  const runAnimation = useCallback(async () => {
+    console.log("running animation");
+    setAnimationActive(true);
+    await delay(5000);
+    handleReset();
+  }, [handleReset]);
 
   return (
     <div className="App">
@@ -66,33 +68,47 @@ function App() {
           <div className="scovilleContainer">
             <div className="scovilleBarContainer">
               <div className="scovilleBarGradient"></div>
-              <div className={animationActive ? `blankScovilleBar ${animationClass}` : 'blankScovilleBar'}></div>
+              <div
+                className={
+                  animationActive
+                    ? `blankScovilleBar ${animationClass}`
+                    : "blankScovilleBar"
+                }
+              ></div>
             </div>
             <div className="scovilleInfo">
               <h1>Scoville Level</h1>
               <h1>{scovilleForDisplay}</h1>
-            </div>          
+            </div>
           </div>
         </div>
 
-        <div className="utilityContainer">
-          <div className="inputContainer">
-            <input 
-            onChange={(e) => {
-              setScoville((_) => {
-                const int = parseInt(e.target.value);
-                if (isNaN(int)) return 0;
-                return int;
-              });
-          }}
-          value={scoville} name="scollville" type="text" />
+        {animationActive === false && (
+          <div className="utilityContainer">
+            <div className="inputContainer">
+              <input
+                onChange={(e) => {
+                  setScoville((_) => {
+                    const int = parseInt(e.target.value);
+                    if (isNaN(int)) return 0;
+                    return int;
+                  });
+                }}
+                value={scoville}
+                name="scollville"
+                type="text"
+              />
+            </div>
+            <div className="buttonsContainer">
+              <button type="button" onClick={runAnimation}>
+                Render Animation
+              </button>
+              <button type="button" onClick={handleReset}>
+                Reset
+              </button>
+            </div>
           </div>
-          <div className="buttonsContainer">
-            <button type="button" onClick={runAnimation}>Render Animation</button>
-            <button type="button" onClick={handleReset}>Reset</button>
-          </div>
-        </div>
-        
+        )}
       </header>
     </div>
   );

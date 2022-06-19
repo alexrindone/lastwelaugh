@@ -7,7 +7,8 @@
   pointer-events: none;
 }
 
-.buttonsContainer, .inputContainer {
+.buttonsContainer,
+.inputContainer {
   display: flex;
   flex-direction: row;
   width: 250px;
@@ -43,111 +44,116 @@
 }
 
 .Sauce1BG {
-  background-image: url('./images/sauce1.jpg');
+  background-image: url("./images/sauce1.jpg");
 }
 
 .Sauce2BG {
-  background-image: url('./images/sauce2.jpg');
+  background-image: url("./images/sauce2.jpg");
 }
 
 .Sauce3BG {
-  background-image: url('./images/sauce3.jpg');
+  background-image: url("./images/sauce3.jpg");
 }
 
 .Sauce4BG {
-  background-image: url('./images/sauce4.jpg');
+  background-image: url("./images/sauce4.jpg");
 }
 
 .Sauce5BG {
-  background-image: url('./images/sauce5.jpg');
+  background-image: url("./images/sauce5.jpg");
 }
 
 .Sauce6BG {
-  background-image: url('./images/sauce6.jpg');
+  background-image: url("./images/sauce6.jpg");
 }
 
-.timelapse-1, .timelapse-2, .timelapse-3, .timelapse-4, .timelapse-5, .timelapse-6 {
+.timelapse-1,
+.timelapse-2,
+.timelapse-3,
+.timelapse-4,
+.timelapse-5,
+.timelapse-6 {
   animation-fill-mode: forwards;
   animation-timing-function: ease-in-out;
   animation-duration: 1s;
 }
 
 .timelapse-1 {
-	animation-name: timelapse-1;
+  animation-name: timelapse-1;
 }
 
 @keyframes timelapse-1 {
-	0% {
-		height: 100%;
-	}
-	100% {
-		height: 80%;
-	}
+  0% {
+    height: 100%;
+  }
+  100% {
+    height: 85%;
+  }
 }
 
 .timelapse-2 {
-	animation-name: timelapse-2;
+  animation-name: timelapse-2;
 }
 
 @keyframes timelapse-2 {
-	0% {
-		height: 100%;
-	}
-	100% {
-		height: 64%;
-	}
+  0% {
+    height: 100%;
+  }
+  100% {
+    height: 75%;
+  }
 }
 
 .timelapse-3 {
-	animation-name: timelapse-3;
+  animation-name: timelapse-3;
 }
 
 @keyframes timelapse-3 {
-	0% {
-		height: 100%;
-	}
-	100% {
-		height: 48%;
-	}
+  0% {
+    height: 100%;
+  }
+  100% {
+    height: 55%;
+  }
 }
 
 .timelapse-4 {
-	animation-name: timelapse-4;
+  animation-name: timelapse-4;
 }
 
 @keyframes timelapse-4 {
-	0% {
-		height: 100%;
-	}
-	100% {
-		height: 32%;
-	}
+  0% {
+    height: 100%;
+  }
+  100% {
+    height: 42%;
+  }
 }
 
 .timelapse-5 {
-	animation-name: timelapse-5;
+  animation-name: timelapse-5;
 }
 
 @keyframes timelapse-5 {
-	0% {
-		height: 100%;
-	}
-	100% {
-		height: 16%;
-	}
+  0% {
+    height: 100%;
+  }
+  100% {
+    height: 25%;
+  }
 }
 
 .timelapse-6 {
-	animation-name: timelapse-6;
+  animation-name: timelapse-6;
 }
 
 @keyframes timelapse-6 {
-	0% {
-		height: 100%;
-	}
-	100% {
-		height: 0%;
-	}
+  0% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
 }
 
 canvas {
@@ -170,7 +176,16 @@ canvas {
   height: 350px;
   width: 350px;
   overflow: hidden;
-  clip-path: polygon(39% 13%, 65% 18%, 100% 100%, 84% 96%, 67% 94%, 50% 94%, 29% 96%, 9% 99%);
+  clip-path: polygon(
+    39% 13%,
+    65% 18%,
+    100% 100%,
+    84% 96%,
+    67% 94%,
+    50% 94%,
+    29% 96%,
+    9% 99%
+  );
   opacity: 0.9;
 }
 
@@ -187,7 +202,16 @@ canvas {
   width: 100%;
   position: absolute;
   top: 0;
-  clip-path: polygon(39% 13%, 65% 18%, 100% 100%, 84% 96%, 67% 94%, 50% 94%, 29% 96%, 9% 99%);
+  clip-path: polygon(
+    39% 13%,
+    65% 18%,
+    100% 100%,
+    84% 96%,
+    67% 94%,
+    50% 94%,
+    29% 96%,
+    9% 99%
+  );
 }
 
 input {
@@ -205,7 +229,8 @@ input {
   color: white;
 }
 
-.scovilleContainer, .utilityContainer {
+.scovilleContainer,
+.utilityContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
